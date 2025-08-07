@@ -8,7 +8,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { PhoneOff, Gift } from "lucide-react";
+import { PhoneOff, Gift, Mic, MicOff } from "lucide-react";
 import Image from "next/image";
 import { useState, type ReactNode } from "react";
 import {
@@ -26,6 +26,7 @@ const gifts = [
 
 export default function VideoCallDialog({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -59,6 +60,16 @@ export default function VideoCallDialog({ children }: { children: ReactNode }) {
                     ))}
                   </DropdownMenuContent>
                 </DropdownMenu>
+
+                <Button 
+                    variant="secondary" 
+                    size="icon" 
+                    className="rounded-full h-16 w-16 bg-white/20 hover:bg-white/30 backdrop-blur-sm border-2 border-white/50 text-white shadow-lg data-[muted=true]:bg-destructive"
+                    onClick={() => setIsMuted(prev => !prev)}
+                    data-muted={isMuted}
+                >
+                    {isMuted ? <MicOff className="h-7 w-7" /> : <Mic className="h-7 w-7" />}
+                </Button>
 
                 <Button variant="destructive" size="icon" className="rounded-full h-16 w-16" onClick={() => setIsOpen(false)}>
                     <PhoneOff className="h-7 w-7" />
