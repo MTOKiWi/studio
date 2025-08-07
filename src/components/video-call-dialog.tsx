@@ -8,11 +8,15 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Video, PhoneOff, Mic, MicOff, VideoOff, Gift, Clock } from "lucide-react";
+import { PhoneOff, Gift } from "lucide-react";
 import Image from "next/image";
 import { useState, type ReactNode } from "react";
-import { Badge } from "./ui/badge";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const gifts = [
     { name: '💍 Anel', value: 10 },
@@ -21,65 +25,44 @@ const gifts = [
 ];
 
 export default function VideoCallDialog({ children }: { children: ReactNode }) {
-  const [isMuted, setIsMuted] = useState(false);
-  const [isVideoOff, setIsVideoOff] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="max-w-4xl h-[90vh] flex flex-col p-0">
-        <DialogHeader className="p-4 border-b">
-          <DialogTitle>Chamada de Vídeo</DialogTitle>
-        </DialogHeader>
-        <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4 p-4 overflow-hidden">
-            <div className="md:col-span-2 relative h-full w-full rounded-lg overflow-hidden bg-black flex items-center justify-center">
-                <Image src="https://placehold.co/1280x720.png" layout="fill" objectFit="cover" alt="Remote user video" data-ai-hint="person talking" />
-                <div className="absolute top-2 left-2">
-                    <Badge variant="secondary" className="bg-black/50 text-white">
-                        <Clock className="h-3 w-3 mr-1" />
-                        34:12 restantes
-                    </Badge>
-                </div>
-                <div className="absolute bottom-4 right-4 h-32 w-24 rounded-lg overflow-hidden border-2 border-white">
-                    <Image src="https://placehold.co/240x320.png" layout="fill" objectFit="cover" alt="Local user video" data-ai-hint="person selfie" />
-                </div>
+      <DialogContent className="max-w-none w-screen h-screen flex flex-col p-0 m-0 !rounded-none">
+        <div className="relative flex-1 w-full h-full bg-black flex items-center justify-center">
+            <Image src="https://placehold.co/1920x1080.png" layout="fill" objectFit="cover" alt="Remote user video" data-ai-hint="person talking" />
+            
+            <div className="absolute top-4 right-4 h-48 w-36 rounded-lg overflow-hidden border-2 border-white/50 shadow-lg">
+                <Image src="https://placehold.co/240x320.png" layout="fill" objectFit="cover" alt="Local user video" data-ai-hint="person selfie" />
             </div>
-            <div className="flex flex-col gap-4">
-                <Accordion type="single" collapsible className="w-full bg-muted rounded-lg p-2">
-                  <AccordionItem value="item-1">
-                    <AccordionTrigger>
-                        <h3 className="font-bold flex items-center gap-2"><Gift className="h-5 w-5 text-primary" /> Enviar um Presente</h3>
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div className="space-y-2 pt-2">
-                          {gifts.map(gift => (
-                              <Button key={gift.name} variant="outline" className="w-full justify-between bg-background">
-                                  <span>{gift.name}</span>
-                                  <span className="font-semibold">R$ {gift.value}</span>
-                              </Button>
-                          ))}
-                      </div>
-                      <p className="text-xs text-muted-foreground mt-4 px-2">O valor é enviado diretamente para a chave Pix do usuário.</p>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
 
-                <div className="bg-muted rounded-lg p-4 flex-1">
-                    <h3 className="font-bold mb-4">Controles</h3>
-                     <div className="flex justify-around">
-                        <Button variant={isMuted ? "destructive" : "secondary"} size="icon" className="rounded-full h-12 w-12" onClick={() => setIsMuted(!isMuted)}>
-                            {isMuted ? <MicOff /> : <Mic />}
-                        </Button>
-                        <Button variant={isVideoOff ? "destructive" : "secondary"} size="icon" className="rounded-full h-12 w-12" onClick={() => setIsVideoOff(!isVideoOff)}>
-                            {isVideoOff ? <VideoOff /> : <Video />}
-                        </Button>
-                        <Button variant="destructive" size="icon" className="rounded-full h-12 w-12">
-                            <PhoneOff />
-                        </Button>
-                    </div>
-                </div>
+            <div className="absolute bottom-8 flex items-center justify-center gap-4">
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="secondary" size="icon" className="rounded-full h-16 w-16 bg-black/50 hover:bg-black/70 border-2 border-white/30">
+                        <Gift className="h-7 w-7 text-white" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="center" className="mb-2 bg-background/80 backdrop-blur-sm border-white/20">
+                    <DialogHeader>
+                      <DialogTitle className="px-2 py-1 text-base">Enviar um Presente</DialogTitle>
+                    </DialogHeader>
+                    {gifts.map(gift => (
+                        <DropdownMenuItem key={gift.name} className="flex justify-between gap-4">
+                            <span>{gift.name}</span>
+                            <span className="font-semibold">R$ {gift.value}</span>
+                        </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+
+                <Button variant="destructive" size="icon" className="rounded-full h-16 w-16" onClick={() => setIsOpen(false)}>
+                    <PhoneOff className="h-7 w-7" />
+                </Button>
             </div>
         </div>
       </DialogContent>
