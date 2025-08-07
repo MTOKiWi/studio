@@ -36,8 +36,8 @@ export default function VideoCallDialog({ children }: { children: ReactNode }) {
         <div className="relative flex-1 w-full h-full bg-black flex items-center justify-center">
             <Image src="https://placehold.co/1920x1080.png" layout="fill" objectFit="cover" alt="Remote user video" data-ai-hint="person talking" />
             
-            <div className="absolute top-4 right-4 h-48 w-36 rounded-lg overflow-hidden border-2 border-white/50 shadow-lg">
-                <Image src="https://placehold.co/240x320.png" layout="fill" objectFit="cover" alt="Local user video" data-ai-hint="person selfie" />
+            <div className="absolute top-4 right-4 h-[150px] w-[100px] rounded-lg overflow-hidden border-2 border-white/50 shadow-lg">
+                <Image src="https://placehold.co/100x150.png" layout="fill" objectFit="cover" alt="Local user video" data-ai-hint="person selfie" />
             </div>
 
             <div className="absolute bottom-8 flex items-center justify-center gap-4">
