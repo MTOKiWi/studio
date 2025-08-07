@@ -10,7 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Video, PhoneOff, Mic, MicOff, VideoOff, Gift, Clock } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { Badge } from "./ui/badge";
 
 const gifts = [
@@ -19,16 +19,14 @@ const gifts = [
     { name: '💎 Diamante', value: 50 },
 ];
 
-export default function VideoCallDialog() {
+export default function VideoCallDialog({ children }: { children: ReactNode }) {
   const [isMuted, setIsMuted] = useState(false);
   const [isVideoOff, setIsVideoOff] = useState(false);
 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="ghost" size="icon">
-          <Video className="h-5 w-5 text-muted-foreground" />
-        </Button>
+        {children}
       </DialogTrigger>
       <DialogContent className="max-w-4xl h-[90vh] flex flex-col p-0">
         <DialogHeader className="p-4 border-b">
