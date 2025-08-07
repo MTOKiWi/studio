@@ -43,8 +43,8 @@ export default function VideoCallDialog({ children }: { children: ReactNode }) {
             <div className="absolute bottom-8 flex items-center justify-center gap-4">
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="secondary" size="icon" className="rounded-full h-16 w-16 bg-black/50 hover:bg-black/70 border-2 border-white/30">
-                        <Gift className="h-7 w-7 text-white" />
+                    <Button variant="secondary" size="icon" className="rounded-full h-16 w-16 bg-yellow-400/80 hover:bg-yellow-400/90 border-2 border-white/50 text-black shadow-lg animate-pulse">
+                        <Gift className="h-7 w-7" />
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="center" className="mb-2 bg-background/80 backdrop-blur-sm border-white/20">
