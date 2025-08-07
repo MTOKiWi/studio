@@ -12,10 +12,10 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
-import { Video } from "lucide-react";
+import { Loader2, Video } from "lucide-react";
 import type { ReactNode } from "react";
 
-export function BuyVideoPackageDialog({ children, onConfirm }: { children: ReactNode, onConfirm: () => void }) {
+export function BuyVideoPackageDialog({ children, onConfirm, isBuying }: { children: ReactNode, onConfirm: () => void, isBuying: boolean }) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
@@ -33,8 +33,11 @@ export function BuyVideoPackageDialog({ children, onConfirm }: { children: React
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter className="sm:justify-center">
-          <AlertDialogCancel>Cancelar</AlertDialogCancel>
-          <AlertDialogAction onClick={onConfirm}>Sim, comprar agora</AlertDialogAction>
+          <AlertDialogCancel disabled={isBuying}>Cancelar</AlertDialogCancel>
+          <AlertDialogAction onClick={onConfirm} disabled={isBuying}>
+            {isBuying && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            {isBuying ? 'Processando...' : 'Sim, comprar agora'}
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
