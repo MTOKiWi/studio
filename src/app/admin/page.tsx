@@ -10,16 +10,16 @@ export default function AdminPage() {
         <Button asChild size="icon" variant="outline" className="sm:hidden">
           <Link href="/app">
             <ArrowLeft className="h-5 w-5" />
-            <span className="sr-only">Back to App</span>
+            <span className="sr-only">Voltar para o aplicativo</span>
           </Link>
         </Button>
         <h1 className="flex items-center gap-2 text-xl font-semibold sm:text-2xl font-headline">
           <Shield className="h-6 w-6 text-primary" />
-          <span>Moderation Dashboard</span>
+          <span>Painel de Moderação</span>
         </h1>
         <div className="ml-auto">
           <Button asChild variant="outline">
-            <Link href="/app">Back to Chat</Link>
+            <Link href="/app">Voltar para o Chat</Link>
           </Button>
         </div>
       </header>

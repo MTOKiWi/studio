@@ -23,7 +23,7 @@ export type Chat = {
 
 export type Gift = {
   id: string;
-  name: 'Ring' | 'Necklace' | 'Diamond';
+  name: 'Anel' | 'Colar' | 'Diamante';
   value: number;
   date: string;
   senderName: string;

@@ -50,9 +50,9 @@ export default function ContactList({ users, onSelectUser, selectedUser }: Conta
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem asChild><div className='w-full'>User Dashboard</div></DropdownMenuItem>
+                <DropdownMenuItem asChild><div className='w-full'>Painel do Usuário</div></DropdownMenuItem>
                 <DropdownMenuItem asChild><Link href="/admin">Admin</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link href="/">Logout</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link href="/">Sair</Link></DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </UserDashboard>
@@ -62,7 +62,7 @@ export default function ContactList({ users, onSelectUser, selectedUser }: Conta
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input 
-            placeholder="Search or start new chat" 
+            placeholder="Buscar ou iniciar nova conversa" 
             className="pl-10"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -90,7 +90,7 @@ export default function ContactList({ users, onSelectUser, selectedUser }: Conta
               <div className="flex-1">
                 <h3 className="font-semibold">{user.name}</h3>
                 <p className="text-sm text-muted-foreground truncate">
-                  {user.lastSeen === 'online' ? 'Online' : `Last seen ${user.lastSeen}`}
+                  {user.lastSeen}
                 </p>
               </div>
             </button>

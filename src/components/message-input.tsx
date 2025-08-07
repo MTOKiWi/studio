@@ -27,7 +27,7 @@ export default function MessageInput({ onSendMessage }: MessageInputProps) {
           <Paperclip className="h-5 w-5 text-muted-foreground" />
         </Button>
         <Input
-          placeholder="Type a message"
+          placeholder="Digite uma mensagem"
           className="flex-1 rounded-full bg-background px-4"
           value={message}
           onChange={(e) => setMessage(e.target.value)}

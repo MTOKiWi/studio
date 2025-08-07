@@ -23,45 +23,45 @@ export default function UserDashboard({ children }: { children: ReactNode }) {
       </DialogTrigger>
       <DialogContent className="max-w-2xl">
         <DialogHeader>
-          <DialogTitle className="font-headline text-2xl">User Dashboard</DialogTitle>
+          <DialogTitle className="font-headline text-2xl">Painel do Usuário</DialogTitle>
           <DialogDescription>
-            Here is a summary of your account.
+            Aqui está um resumo da sua conta.
           </DialogDescription>
         </DialogHeader>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-4">
             <Card>
                 <CardHeader className="flex flex-row items-center justify-between pb-2">
-                    <CardTitle className="text-sm font-medium">Remaining Call Time</CardTitle>
+                    <CardTitle className="text-sm font-medium">Tempo de Chamada Restante</CardTitle>
                     <Clock className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
-                    <div className="text-2xl font-bold">35 minutes</div>
-                    <p className="text-xs text-muted-foreground">from your 1-hour package</p>
+                    <div className="text-2xl font-bold">35 minutos</div>
+                    <p className="text-xs text-muted-foreground">do seu pacote de 1 hora</p>
                     <Button size="sm" className="mt-4">
-                        <PlusCircle className="mr-2 h-4 w-4" /> Buy More Time
+                        <PlusCircle className="mr-2 h-4 w-4" /> Comprar Mais Tempo
                     </Button>
                 </CardContent>
             </Card>
             <Card>
                 <CardHeader className="flex flex-row items-center justify-between pb-2">
-                    <CardTitle className="text-sm font-medium">Gifts Received</CardTitle>
+                    <CardTitle className="text-sm font-medium">Presentes Recebidos</CardTitle>
                     <Gift className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                     <div className="text-2xl font-bold">R$ 80,00</div>
-                    <p className="text-xs text-muted-foreground">Total value of gifts received</p>
+                    <p className="text-xs text-muted-foreground">Valor total de presentes recebidos</p>
                 </CardContent>
             </Card>
         </div>
         <div>
-            <h3 className="text-lg font-semibold mb-2">Gift History</h3>
+            <h3 className="text-lg font-semibold mb-2">Histórico de Presentes</h3>
              <Table>
                 <TableHeader>
                     <TableRow>
-                    <TableHead>Gift</TableHead>
-                    <TableHead>From</TableHead>
-                    <TableHead>Date</TableHead>
-                    <TableHead className="text-right">Value</TableHead>
+                    <TableHead>Presente</TableHead>
+                    <TableHead>De</TableHead>
+                    <TableHead>Data</TableHead>
+                    <TableHead className="text-right">Valor</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>

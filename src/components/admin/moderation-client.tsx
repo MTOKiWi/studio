@@ -16,8 +16,8 @@ import { ShieldAlert, ShieldCheck } from 'lucide-react';
 import { Skeleton } from '../ui/skeleton';
 
 const formSchema = z.object({
-  text: z.string().min(1, 'Text to moderate cannot be empty.'),
-  userProfile: z.string().min(1, 'User profile cannot be empty.'),
+  text: z.string().min(1, 'O texto para moderar não pode estar vazio.'),
+  userProfile: z.string().min(1, 'O perfil do usuário não pode estar vazio.'),
 });
 
 export default function ModerationClient() {
@@ -44,8 +44,8 @@ export default function ModerationClient() {
     <div className="grid gap-6 md:grid-cols-2">
       <Card>
         <CardHeader>
-          <CardTitle>Test Moderation</CardTitle>
-          <CardDescription>Enter text and a user profile to check for policy violations.</CardDescription>
+          <CardTitle>Testar Moderação</CardTitle>
+          <CardDescription>Insira o texto e um perfil de usuário para verificar violações de política.</CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -55,9 +55,9 @@ export default function ModerationClient() {
                 name="text"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Message Text</FormLabel>
+                    <FormLabel>Texto da Mensagem</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Enter a chat message..." {...field} />
+                      <Textarea placeholder="Digite uma mensagem de chat..." {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -68,16 +68,16 @@ export default function ModerationClient() {
                 name="userProfile"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>User Profile Information</FormLabel>
+                    <FormLabel>Informações do Perfil do Usuário</FormLabel>
                     <FormControl>
-                      <Input placeholder="e.g., John Doe, joined 2 days ago" {...field} />
+                      <Input placeholder="ex: João Silva, entrou há 2 dias" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
               <Button type="submit" disabled={isLoading}>
-                {isLoading ? 'Moderating...' : 'Moderate'}
+                {isLoading ? 'Moderando...' : 'Moderar'}
               </Button>
             </form>
           </Form>
@@ -85,8 +85,8 @@ export default function ModerationClient() {
       </Card>
       <Card>
         <CardHeader>
-          <CardTitle>Moderation Result</CardTitle>
-          <CardDescription>The result of the moderation check will appear here.</CardDescription>
+          <CardTitle>Resultado da Moderação</CardTitle>
+          <CardDescription>O resultado da verificação de moderação aparecerá aqui.</CardDescription>
         </CardHeader>
         <CardContent>
           {isLoading && (
@@ -102,7 +102,7 @@ export default function ModerationClient() {
               ) : (
                 <ShieldAlert className="h-4 w-4" />
               )}
-              <AlertTitle>{result.isSafe ? 'Content is Safe' : 'Violation Detected'}</AlertTitle>
+              <AlertTitle>{result.isSafe ? 'Conteúdo Seguro' : 'Violação Detectada'}</AlertTitle>
               <AlertDescription>{result.reason}</AlertDescription>
             </Alert>
           )}

@@ -19,7 +19,7 @@ export default function ChatWindow({ user, chat, onSendMessage, onBack }: ChatWi
       <div className="flex h-full flex-col items-center justify-center bg-background text-center">
         <MessagesSquare className="h-24 w-24 text-muted-foreground/50" />
         <h1 className="mt-4 text-2xl font-semibold text-muted-foreground">ChatLink Premium</h1>
-        <p className="mt-2 text-muted-foreground">Select a contact to start messaging.</p>
+        <p className="mt-2 text-muted-foreground">Selecione um contato para começar a conversar.</p>
       </div>
     );
   }

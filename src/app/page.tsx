@@ -14,23 +14,23 @@ export default function LoginPage() {
           <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground">
             <MessagesSquare size={32} />
           </div>
-          <CardTitle className="font-headline text-3xl">Welcome Back</CardTitle>
-          <CardDescription>Enter your email to sign in to ChatLink Premium.</CardDescription>
+          <CardTitle className="font-headline text-3xl">Bem-vindo de volta</CardTitle>
+          <CardDescription>Digite seu e-mail para entrar no ChatLink Premium.</CardDescription>
         </CardHeader>
         <CardContent>
           <form className="space-y-4" action="/app">
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="you@example.com" required />
+              <Label htmlFor="email">E-mail</Label>
+              <Input id="email" type="email" placeholder="voce@exemplo.com" required />
             </div>
             <Button type="submit" className="w-full">
-              Send Login Link
+              Enviar Link de Acesso
             </Button>
           </form>
           <div className="mt-4 text-center text-sm">
-            Don&apos;t have an account?{' '}
+            Não tem uma conta?{' '}
             <Link href="/register" className="font-medium text-primary underline-offset-4 hover:underline">
-              Sign up
+              Cadastre-se
             </Link>
           </div>
         </CardContent>

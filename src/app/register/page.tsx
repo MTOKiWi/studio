@@ -14,27 +14,27 @@ export default function RegisterPage() {
           <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground">
             <UserPlus size={32} />
           </div>
-          <CardTitle className="font-headline text-3xl">Create your Account</CardTitle>
-          <CardDescription>Join ChatLink Premium to connect with people.</CardDescription>
+          <CardTitle className="font-headline text-3xl">Crie sua Conta</CardTitle>
+          <CardDescription>Junte-se ao ChatLink Premium para se conectar com pessoas.</CardDescription>
         </CardHeader>
         <CardContent>
           <form className="space-y-4" action="/app">
             <div className="space-y-2">
-              <Label htmlFor="name">Name (Nickname)</Label>
-              <Input id="name" type="text" placeholder="Your public name" required />
+              <Label htmlFor="name">Nome (Apelido)</Label>
+              <Input id="name" type="text" placeholder="Seu nome público" required />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="you@example.com" required />
+              <Label htmlFor="email">E-mail</Label>
+              <Input id="email" type="email" placeholder="voce@exemplo.com" required />
             </div>
             <Button type="submit" className="w-full">
-              Create Account
+              Criar Conta
             </Button>
           </form>
           <div className="mt-4 text-center text-sm">
-            Already have an account?{' '}
+            Já tem uma conta?{' '}
             <Link href="/" className="font-medium text-primary underline-offset-4 hover:underline">
-              Log in
+              Entrar
             </Link>
           </div>
         </CardContent>
