@@ -29,7 +29,7 @@ export function BuyVideoPackageDialog({ children, onConfirm }: { children: React
           <AlertDialogTitle className="text-center">Pacote de Videochamada</AlertDialogTitle>
           <AlertDialogDescription className="text-center">
             Para iniciar uma chamada de vídeo, você precisa adquirir um pacote. 
-            Deseja adquirir o pacote de 60 minutos por R$ 25,00?
+            Deseja adquirir o pacote de 1 hora por R$ 10,00?
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter className="sm:justify-center">
