@@ -17,6 +17,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useToast } from "@/hooks/use-toast";
 
 const gifts = [
     { name: '💍 Anel', value: 10 },
@@ -27,6 +28,16 @@ const gifts = [
 export default function VideoCallDialog({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const { toast } = useToast();
+
+  const handleSendGift = (gift: { name: string; value: number }) => {
+    // Lógica para enviar o presente (ex: chamada para o backend)
+    console.log(`Enviando presente: ${gift.name}`);
+    toast({
+      title: "Presente Enviado!",
+      description: `Você enviou um ${gift.name} com sucesso.`,
+    });
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -53,7 +64,7 @@ export default function VideoCallDialog({ children }: { children: ReactNode }) {
                       <DialogTitle className="px-2 py-1 text-base">Enviar um Presente</DialogTitle>
                     </DialogHeader>
                     {gifts.map(gift => (
-                        <DropdownMenuItem key={gift.name} className="flex justify-between gap-4">
+                        <DropdownMenuItem key={gift.name} className="flex justify-between gap-4 cursor-pointer" onClick={() => handleSendGift(gift)}>
                             <span>{gift.name}</span>
                             <span className="font-semibold">R$ {gift.value}</span>
                         </DropdownMenuItem>
