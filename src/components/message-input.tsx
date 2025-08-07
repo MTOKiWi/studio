@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Paperclip, Mic, SendHorizonal } from "lucide-react";
+import { Paperclip, SendHorizonal } from "lucide-react";
 
 type MessageInputProps = {
   onSendMessage: (text: string) => void;
@@ -32,15 +32,9 @@ export default function MessageInput({ onSendMessage }: MessageInputProps) {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
-        {message ? (
-          <Button type="submit" size="icon" className="rounded-full bg-primary text-primary-foreground">
-            <SendHorizonal className="h-5 w-5" />
-          </Button>
-        ) : (
-          <Button type="button" variant="ghost" size="icon">
-            <Mic className="h-5 w-5 text-muted-foreground" />
-          </Button>
-        )}
+        <Button type="submit" size="icon" className="rounded-full bg-primary text-primary-foreground" disabled={!message.trim()}>
+          <SendHorizonal className="h-5 w-5" />
+        </Button>
       </form>
     </div>
   );
