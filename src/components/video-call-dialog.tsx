@@ -12,6 +12,7 @@ import { Video, PhoneOff, Mic, MicOff, VideoOff, Gift, Clock } from "lucide-reac
 import Image from "next/image";
 import { useState, type ReactNode } from "react";
 import { Badge } from "./ui/badge";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 
 const gifts = [
     { name: '💍 Anel', value: 10 },
@@ -46,19 +47,26 @@ export default function VideoCallDialog({ children }: { children: ReactNode }) {
                 </div>
             </div>
             <div className="flex flex-col gap-4">
+                <Accordion type="single" collapsible className="w-full bg-muted rounded-lg p-2">
+                  <AccordionItem value="item-1">
+                    <AccordionTrigger>
+                        <h3 className="font-bold flex items-center gap-2"><Gift className="h-5 w-5 text-primary" /> Enviar um Presente</h3>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 pt-2">
+                          {gifts.map(gift => (
+                              <Button key={gift.name} variant="outline" className="w-full justify-between bg-background">
+                                  <span>{gift.name}</span>
+                                  <span className="font-semibold">R$ {gift.value}</span>
+                              </Button>
+                          ))}
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-4 px-2">O valor é enviado diretamente para a chave Pix do usuário.</p>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+
                 <div className="bg-muted rounded-lg p-4 flex-1">
-                    <h3 className="font-bold mb-4 flex items-center gap-2"><Gift className="h-5 w-5 text-primary" /> Enviar um Presente</h3>
-                    <div className="space-y-2">
-                        {gifts.map(gift => (
-                            <Button key={gift.name} variant="outline" className="w-full justify-between">
-                                <span>{gift.name}</span>
-                                <span className="font-semibold">R$ {gift.value}</span>
-                            </Button>
-                        ))}
-                    </div>
-                    <p className="text-xs text-muted-foreground mt-4">O valor é enviado diretamente para a chave Pix do usuário.</p>
-                </div>
-                <div className="bg-muted rounded-lg p-4">
                     <h3 className="font-bold mb-4">Controles</h3>
                      <div className="flex justify-around">
                         <Button variant={isMuted ? "destructive" : "secondary"} size="icon" className="rounded-full h-12 w-12" onClick={() => setIsMuted(!isMuted)}>
