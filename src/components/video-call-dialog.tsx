@@ -64,7 +64,7 @@ export default function VideoCallDialog({ children }: { children: ReactNode }) {
                 <Button 
                     variant="secondary" 
                     size="icon" 
-                    className="rounded-full h-16 w-16 bg-white/20 hover:bg-white/30 backdrop-blur-sm border-2 border-white/50 text-white shadow-lg data-[muted=true]:bg-destructive"
+                    className="rounded-full h-16 w-16 bg-gray-300 hover:bg-gray-400 text-black shadow-lg data-[muted=true]:bg-destructive data-[muted=true]:text-white"
                     onClick={() => setIsMuted(prev => !prev)}
                     data-muted={isMuted}
                 >
