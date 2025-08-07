@@ -3,8 +3,8 @@
 import type { User } from "@/lib/types";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { MoreVertical, Search, ArrowLeft } from "lucide-react";
-import VideoCallController from "./video-call-controller";
+import { MoreVertical, Search, ArrowLeft, Video } from "lucide-react";
+import VideoCallDialog from "./video-call-dialog";
 
 type ChatHeaderProps = {
   user: User;
@@ -28,7 +28,11 @@ export default function ChatHeader({ user, onBack }: ChatHeaderProps) {
         </div>
       </div>
       <div className="flex items-center gap-2">
-        <VideoCallController />
+        <VideoCallDialog>
+            <Button variant="ghost" size="icon">
+                <Video className="h-5 w-5 text-muted-foreground" />
+            </Button>
+        </VideoCallDialog>
         <Button variant="ghost" size="icon">
           <Search className="h-5 w-5 text-muted-foreground" />
         </Button>
