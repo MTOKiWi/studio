@@ -66,6 +66,7 @@ export default function ContactList({ users, onSelectUser, selectedUser }: Conta
             className="pl-10"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+            suppressHydrationWarning
           />
         </div>
       </div>
